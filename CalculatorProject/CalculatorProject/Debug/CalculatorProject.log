@@ -1,0 +1,13 @@
+﻿  main.c
+c:\users\matthieu\documents\c\projet calculette\calculatorproject\calculatorproject\main.c(13): warning C4477: 'printf' : format string '%d' requires an argument of type 'int', but variadic argument 1 has type 'int *'
+c:\users\matthieu\documents\c\projet calculette\calculatorproject\calculatorproject\main.c(15): warning C4477: 'printf' : format string '%lf' requires an argument of type 'double', but variadic argument 1 has type 'double *'
+  base.c
+c:\users\matthieu\documents\c\projet calculette\calculatorproject\calculatorproject\base.c(20): warning C4244: '*=': conversion from 'double' to 'int', possible loss of data
+  Generating Code...
+  stdafx.cpp
+  base.h
+  Generating Code...
+Debug\base.obj : warning LNK4042: object specified more than once; extras ignored
+main.obj : error LNK2019: unresolved external symbol _factorielle referenced in function _main
+main.obj : error LNK2019: unresolved external symbol _puissance referenced in function _main
+C:\Users\Matthieu\Documents\C\Projet Calculette\CalculatorProject\Debug\CalculatorProject.exe : fatal error LNK1120: 2 unresolved externals

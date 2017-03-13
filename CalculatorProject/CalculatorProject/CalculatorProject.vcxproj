@@ -149,7 +149,9 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CalculatorProject.cpp" />
+    <ClCompile Include="base.c" />
+    <ClCompile Include="base.h" />
+    <ClCompile Include="main.c" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -29,7 +29,13 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CalculatorProject.cpp">
+    <ClCompile Include="base.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="base.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
