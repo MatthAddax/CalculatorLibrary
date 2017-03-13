@@ -2,7 +2,7 @@
 main.c
 
 #Visual studio files
-.sln
+*.sln
 
 # Object files
 *.o
