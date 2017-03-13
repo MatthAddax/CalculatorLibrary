@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><title>DA 0pjjgh</title></head><body><pre> <span style="color:#008000">// Exponentielle : Da général</span>
+ <span style="color:#008000">//tableau des decompositions :</span>
+ <span style="color:#008000">//tableau de 5 cases. Chacune d'entre elle est une structure contenant le nombre constant (0.1;0.2;0.3;0.4;0.5),  </span>
+ <span style="color:#008000">//le nombre d'occurence où le nombre "apparaît dans l'exposant et le degré pour chaque nombre ayant au moins une occurence et</span>
+ <span style="color:#008000">//le résultat du polynome pour chaque nombre (pas chaque occurence)</span>
+ 
+┌───*<span style="color:#008000"> Exponentielle</span>
+│ degre = 0
+│ totalPolynome = 0
+│┌── <span style="color:#0000ff">if</span>(exposant > 0.5 || exposant < -0.5)
+││ <span style="color:#0000ff">┌──────────────────────────────┐</span><span style="color:#0000ff">↓ </span>exposant,nbDecimalesVoulues
+││ <span style="color:#0000ff">│ CalculDegreExposantTropGrand │</span>
+││ <span style="color:#0000ff">└──────────────────────────────┘</span><span style="color:#0000ff">↓ </span>degre
+││ <span style="color:#0000ff">┌───────────────────────┐</span><span style="color:#0000ff">↓ </span>exposant
+││ <span style="color:#0000ff">│ DecompositionExposant │</span>
+││ <span style="color:#0000ff">└───────────────────────┘</span><span style="color:#0000ff">↓ </span>decompositions
+││ 
+││ iDecompo = 0
+││╔══ <span style="color:#0000ff">do while</span>(iDecompo < decompositions.length)
+││║┌── <span style="color:#0000ff">if</span>(decompositions[iDecompo].occurences > 0
+││║│ nombre = decompositions[iDecompo].nombre
+││║│ occurences = decompositions[iDecompo].occurences
+││║│ 
+││║│ <span style="color:#0000ff">┌────────────────┐</span><span style="color:#0000ff">↓ </span>nombre, degre
+││║│ <span style="color:#0000ff">│ CalculPolynome │</span>
+││║│ <span style="color:#0000ff">└────────────────┘</span><span style="color:#0000ff">↓ </span>resultatPolynomeIntermédiaire
+││║│ 
+││║│ occurenceCourante = 0
+││║│╔══ <span style="color:#0000ff">do while</span>(occurenceCourante < occurences)
+││║│║ totalPolynome += resultatPolynomeIntermédiaire
+││║│║ occurenceCourante++
+││║│╙──
+││║└──
+││║ 
+││║ iDecompo++
+││╙──
+││ 
+│├── <span style="color:#0000ff">else</span>
+││ <span style="color:#0000ff">┌───────────────────┐</span><span style="color:#0000ff">↓ </span>exposant, nbDecimalesVoulues
+││ <span style="color:#0000ff">│ CalculDegreSimple │</span>
+││ <span style="color:#0000ff">└───────────────────┘</span><span style="color:#0000ff">↓ </span>degre
+││ <span style="color:#0000ff">┌────────────────┐</span><span style="color:#0000ff">↓ </span>nombre, degre
+││ <span style="color:#0000ff">│ CalculPolynome │</span>
+││ <span style="color:#0000ff">└────────────────┘</span><span style="color:#0000ff">↓ </span>resultatPolynome
+││ totalPolynome = resultatPolynome
+│└──
+│ 
+│ <span style="color:#0000ff">sortir</span> totalPolynome
+└──
+ 
+┌───*<span style="color:#008000">CalculDegreExposantTropGrand (exposant, nbDecimalesVoulues)</span>
+│ <span style="color:#0000ff">┌───────────────────────┐</span>
+│ <span style="color:#0000ff">│ DecompositionExposant │</span>
+│ <span style="color:#0000ff">└───────────────────────┘</span>
+│ degreTotal = 0
+│ iDecompo++
+│╔══ <span style="color:#0000ff">do while</span>(iDecomo < 5)
+│║ exposantTemp = decompositions[iDecompo].nombre
+│║ occurencesTemp = decompositions[iDecompo].occurences
+│║ <span style="color:#0000ff">┌───────────────────┐</span><span style="color:#0000ff">↓ </span>exposantTemp, nbDecimalesVoulues
+│║ <span style="color:#0000ff">│ CalculDegreSimple │</span>
+│║ <span style="color:#0000ff">└───────────────────┘</span><span style="color:#0000ff">↓ </span>degreSimple
+│║ <span style="color:#0000ff">┌───────────┐</span><span style="color:#0000ff">↓ </span>degreSimple, occurencesTemp
+│║ <span style="color:#0000ff">│ Puissance │</span>
+│║ <span style="color:#0000ff">└───────────┘</span><span style="color:#0000ff">↓ </span>degreTemp
+│║ degreTotal += degreTemp
+│║ iDecompo ++
+│╙──
+│ <span style="color:#0000ff">sortir</span> degreTotal
+└──
+ 
+┌───*<span style="color:#008000"> DecompositionExposant (exposant)</span>
+│ exposantTemporaire = exposant
+│╔══ <span style="color:#0000ff">do while</span>(exposantTemporaire ≥ 0.5)
+│║ decompositions[4].occurences++
+│║ exposantTemporaire -= 0.5
+│╙──
+│ 
+│╔══ <span style="color:#0000ff">do while</span>(exposantTemporaire ≥ 0.4)
+│║ decompositions[3].occurences++
+│║ exposantTemporaire -= 0.4
+│╙──
+│ 
+│╔══ <span style="color:#0000ff">do while</span>(exposantTemporaire ≥ 0.3)
+│║ decompositions[2].occurences++
+│║ exposantTemporaire -= 0.3
+│╙──
+│ 
+│╔══ <span style="color:#0000ff">do while</span>(exposantTemporaire ≥ 0.2)
+│║ decompositions[2].occurences++
+│║ exposantTemporaire -= 0.2
+│╙──
+│ 
+│╔══ <span style="color:#0000ff">do while</span>(exposantTemporaire ≥ 0.1)
+│║ decompositions[2].occurences++
+│║ exposantTemporaire -= 0.1
+│╙──
+│ 
+│ <span style="color:#0000ff">sortir</span> decompositions
+└──
+ 
+┌───*<span style="color:#008000"> CalculDegreSimple (exposant, nbDecimalesVoulues)</span>
+│ n = 0
+│ <span style="color:#0000ff">┌─────────────────┐</span><span style="color:#0000ff">↓ </span>n
+│ <span style="color:#0000ff">│ CalculPourDegre │</span>
+│ <span style="color:#0000ff">└─────────────────┘</span><span style="color:#0000ff">↓ </span>resultat
+│ <span style="color:#0000ff">┌───────────┐</span><span style="color:#0000ff">↓ </span>10,-7
+│ <span style="color:#0000ff">│ Puissance │</span>
+│ <span style="color:#0000ff">└───────────┘</span><span style="color:#0000ff">↓ </span>resPuissanceDe10
+│ constante = 0.5 * resPuissanceDe10
+│╔══ <span style="color:#0000ff">do while</span>(resultat ≥ constante)  
+│║ <span style="color:#0000ff">┌─────────────────┐</span><span style="color:#0000ff">↓ </span>n
+│║ <span style="color:#0000ff">│ CalculPourDegre │</span>
+│║ <span style="color:#0000ff">└─────────────────┘</span><span style="color:#0000ff">↓ </span>resultat
+│║ n++
+│╙──
+│ <span style="color:#0000ff">sortir</span> n
+└──
+ 
+┌───*<span style="color:#008000"> CalculPourDegre (n)</span>
+│ <span style="color:#0000ff">┌───────────┐</span><span style="color:#0000ff">↓ </span>0.5, n+1
+│ <span style="color:#0000ff">│ Puissance │</span>
+│ <span style="color:#0000ff">└───────────┘</span><span style="color:#0000ff">↓ </span>resultatExposant
+│ <span style="color:#0000ff">┌─────────────┐</span><span style="color:#0000ff">↓ </span>n
+│ <span style="color:#0000ff">│ Factorielle │</span>
+│ <span style="color:#0000ff">└─────────────┘</span><span style="color:#0000ff">↓ </span>resultatFactorielle
+│ 
+│ <span style="color:#0000ff">sortir</span> (2.8 * resultatExposant / resultatFactorielle)
+└──
+ 
+┌───*<span style="color:#008000"> CalculPolynome(nombre, degre)</span>
+│ n = 0
+│ total = 0
+│╔══ <span style="color:#0000ff">do while</span>(n < degre+1)
+│║ <span style="color:#0000ff">┌───────────┐</span><span style="color:#0000ff">↓ </span>nombre,n
+│║ <span style="color:#0000ff">│ Puissance │</span>
+│║ <span style="color:#0000ff">└───────────┘</span><span style="color:#0000ff">↓ </span>puisTemp
+│║ <span style="color:#0000ff">┌─────────────┐</span><span style="color:#0000ff">↓ </span>nombre
+│║ <span style="color:#0000ff">│ Factorielle │</span>
+│║ <span style="color:#0000ff">└─────────────┘</span><span style="color:#0000ff">↓ </span>factTemp
+│║ total += (puisTemp/factTemp)
+│║ n++
+│╙──
+│ <span style="color:#0000ff">sortir</span> total
+└──
+</pre></body></html>
