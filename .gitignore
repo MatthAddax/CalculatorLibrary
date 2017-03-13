@@ -1,9 +1,6 @@
 #Ignore main file
 main.c
-
-#Visual studio files
-*.sln
-
+*.opendb
 # Object files
 *.o
 *.ko
