@@ -1,3 +1,6 @@
+#Ignore main file
+main.c
+
 # Object files
 *.o
 *.ko
