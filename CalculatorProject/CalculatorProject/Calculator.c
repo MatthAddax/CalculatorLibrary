@@ -15,6 +15,22 @@ int affichageMenu(void) {
 	return choixMenu;
 }
 
-void menu(void) {
-	
+void menu(int choixMenu) {
+	double resultat, x;
+	int nbDecimales;
+	switch (choixMenu) {
+		case 1:
+			resultat = expo(x, nbDecimales);
+			break;
+		case 2:
+			resultat = ln(x, nbDecimales);
+			break;
+		case 3:
+			resultat = sin(x, nbDecimales);
+			break;
+		case 4:
+			resultat = proba(x, nbDecimales);
+			break;
+	}
+
 }
