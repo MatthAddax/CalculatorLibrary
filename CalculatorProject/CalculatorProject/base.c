@@ -1,4 +1,8 @@
-#include "base.h"
+#ifndef BASE_H
+	#define BASE_H
+	#include "base.h"
+#endif // !BASE_H
+
 
 int factorielle(int x) {
 	int result = 1;
@@ -12,7 +16,7 @@ int factorielle(int x) {
 double puissance(double x, int exposant) {
 	if (x == 0)
 		return 0;
-
+	
 	int result = 1;
 	int i = 0;
 
