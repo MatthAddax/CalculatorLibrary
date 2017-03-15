@@ -1,10 +1,10 @@
 Strictement croissante sur ]0;+ infini[. 
 Strictement positive sur ]1;+infini[.
-Strictement négative sur ]0;1[.
+Strictement nÃ©gative sur ]0;1[.
 ln(1)= 0
 ln(0) = erreur
-ln (x+1) = x - x²/2 + x³/3 - x^4/4 + x^5/5 - ...
-x est entre ]-1,0]
+ln (x+1) = x - xÂ²/2 + xÂ³/3 - x^4/4 + x^5/5 - ...
+x est entre [0;0.5[
 ln(a*b) = ln(a) + ln(b)
 
-Quel degrés atteindre ? x^n+1/n+1 < ?*10^nbDecimale!
+Quel degrÃ©s atteindre ? 0.5^n+1/n+1 < 0.5*10^-nbDecimale!
