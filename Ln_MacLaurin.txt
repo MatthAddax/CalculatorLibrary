@@ -8,3 +8,7 @@ x est entre [0;0.5[
 ln(a*b) = ln(a) + ln(b)
 
 Quel degrés atteindre ? 0.5^n+1/n+1 < 0.5*10^-nbDecimale!
+
+Information (peut-être) utile :
+  - e^ln(x) = ln(e^x) = x 
+  - ln(x) = y <==> x = e^y
