@@ -1,6 +1,11 @@
 #Ignore main file
 main.c
 *.opendb
+*.vs
+*.vc
+*.vb
+*.db
+*.vc.db
 # Object files
 *.o
 *.ko
