@@ -6,6 +6,7 @@ main.c
 *.vb
 *.db
 *.vc.db
+CalculatorProject/.vb/*
 # Object files
 *.o
 *.ko
