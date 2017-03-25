@@ -18,21 +18,21 @@ double Exponentielle(double exposant) {
 	double totalPolynome = 0, reste, argMod, p, polynome05, polynomeReste, resultatPolynome;
 
 	if (exposant > 0.5 || exposant < -0.5) {
+		multipleDe05 = abs(ceil(exposant / 0.5));
 
 		if (exposant < -0.5) {
-			reste = (exposant + (abs(ceil(exposant / 0.5))*0.5));
+			reste = (exposant + (multipleDe05*0.5));
 		}else{
-			reste = (exposant - (abs(ceil(exposant / 0.5))*0.5));
+			reste = (exposant - (multipleDe05*0.5));
 		}
 
-		argMod = (multipleDe05 + 1) * 0.5;
-		p = (nbDecimales + (argMod - 0.5) * 0.5 + (argMod / 0.5) + 0.31);
+		argMod = (abs(ceil(exposant / 0.5)) + 1) * 0.5;
+		p = ceil((nbDecimales + (argMod - 0.5) * 0.5 + (argMod / 5) + 0.31));
 		degre = CalculDegré(exposant, p);
 		polynome05 = CalculPolynome((exposant > 0 ? 0.5 : -0.5), degre);
 		polynomeReste = CalculPolynome(reste, degre);
 		totalPolynome = reste * (Puissance(polynome05, multipleDe05));
-	}
-	else{
+	}else{
 		degre = CalculDegré(exposant, nbDecimales);
 		resultatPolynome = CalculPolynome(exposant, degre);
 		totalPolynome = resultatPolynome;
