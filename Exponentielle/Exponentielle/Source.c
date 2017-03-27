@@ -11,20 +11,37 @@ int factorielle(int x);
 
 void main(){
 	double expo;
-	printf("0) : %15lf\n", CalculPourDegre(0));
+	/*printf("0) : %15lf\n", CalculPourDegre(0));
 	printf("1) : %15lf\n", CalculPourDegre(1));
 	printf("2) : %15lf\n", CalculPourDegre(2.0)); 
 	printf("3) : %15lf\n", CalculPourDegre(3.0));
 	printf("4) : %15lf\n", CalculPourDegre(4.0));
 	printf("5) : %15lf\n", CalculPourDegre(5.0));
-	printf("10) : %15lf\n", CalculPourDegre(10));
-	printf("0) DEGRE : %d\n", CalculDegré(0));
+	printf("10) : %15lf\n", CalculPourDegre(10));*/
+
+	/*printf("0) DEGRE : %d\n", CalculDegré(0));
 	printf("1) DEGRE : %d\n", CalculDegré(1));
 	printf("2) DEGRE : %d\n", CalculDegré(2));
 	printf("3) DEGRE : %d\n", CalculDegré(3));
 	printf("4) DEGRE : %d\n", CalculDegré(4));
 	printf("5) DEGRE : %d\n", CalculDegré(5));
-	printf("10) DEGRE : %d\n", CalculDegré(10));
+	printf("10) DEGRE : %d\n", CalculDegré(10));*/
+
+	printf("5.6,0 : %.2lf\n", CalculPolynome(5.6,0));
+	printf("5.6,1 : %.2lf\n", CalculPolynome(5.6,1));
+	printf("5.6,2 : %.2lf\n", CalculPolynome(5.6,2));
+	printf("5.6,3 : %.2lf\n", CalculPolynome(5.6,3));
+	printf("5.6,4 : %.2lf\n", CalculPolynome(5.6,4));
+	printf("5.6,5 : %.2lf\n", CalculPolynome(5.6,5));
+	printf("5.6,10 : %.2lf\n", CalculPolynome(5.6,10));
+	printf("-0.3,0 : %.2lf\n", CalculPolynome(-0.3,0));
+	printf("0.3,1 : %.2lf\n", CalculPolynome(0.3,1));
+	printf("-4.8,2 : %.2lf\n", CalculPolynome(-4.8,2));
+	printf("-4.8,3 : %.2lf\n", CalculPolynome(-4.8,3));
+	printf("-4.8,4 : %.2lf\n", CalculPolynome(-4.8,4));
+	printf("-4.8,5 : %.2lf\n", CalculPolynome(-4.8,5));
+	printf("-4.8,10 : %.2lf\n", CalculPolynome(-4.8,10));
+
 	printf("Introduisez l'exposant de e : ");
 	scanf_s("%lf", &expo);
 	Exponentielle(expo);
@@ -64,10 +81,13 @@ int CalculDegré(int nbDecimale){
 	double Resultat, constante;
 	Resultat = CalculPourDegre(n);
 	constante = 0.5 * Puissance(10, -nbDecimale);
+	printf("Resultat : %.3lf\tConstante : %.5lf\n",Resultat, constante);
 	while (Resultat >= constante) {
 		n++;
 		Resultat = CalculPourDegre(n);
+		printf("Resultat : %.3lf\tConstante : %.5lf\tN : %d\n", Resultat, constante,n);
 	}
+
 	return n;
 }
 
