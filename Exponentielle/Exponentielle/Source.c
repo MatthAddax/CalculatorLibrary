@@ -3,19 +3,37 @@
 #include <math.h>
 
 double Exponentielle(double exposant);
-
+int CalculDegré(int nbDecimale);
+double CalculPourDegre(double n);
+double CalculPolynome(double nombre, int degre);
+double Puissance(double x, double exposant);
+int factorielle(int x);
 
 void main(){
 	double expo;
+	printf("0) : %15lf\n", CalculPourDegre(0));
+	printf("1) : %15lf\n", CalculPourDegre(1));
+	printf("2) : %15lf\n", CalculPourDegre(2.0)); 
+	printf("3) : %15lf\n", CalculPourDegre(3.0));
+	printf("4) : %15lf\n", CalculPourDegre(4.0));
+	printf("5) : %15lf\n", CalculPourDegre(5.0));
+	printf("10) : %15lf\n", CalculPourDegre(10));
+	printf("0) DEGRE : %d\n", CalculDegré(0));
+	printf("1) DEGRE : %d\n", CalculDegré(1));
+	printf("2) DEGRE : %d\n", CalculDegré(2));
+	printf("3) DEGRE : %d\n", CalculDegré(3));
+	printf("4) DEGRE : %d\n", CalculDegré(4));
+	printf("5) DEGRE : %d\n", CalculDegré(5));
+	printf("10) DEGRE : %d\n", CalculDegré(10));
 	printf("Introduisez l'exposant de e : ");
 	scanf_s("%lf", &expo);
 	Exponentielle(expo);
-	System("pause");
+	system("pause");
 }
 
 double Exponentielle(double exposant) {
-	int degre = 0, nbDecimales, multipleDe05;
-	double totalPolynome = 0, reste, argMod, p, polynome05, polynomeReste, resultatPolynome;
+	int degre = 0, nbDecimales = 2;
+	double totalPolynome = 0, reste, multipleDe05, argMod, p, polynome05, polynomeReste, resultatPolynome;
 
 	if (exposant > 0.5 || exposant < -0.5) {
 		multipleDe05 = abs(ceil(exposant / 0.5));
@@ -28,25 +46,27 @@ double Exponentielle(double exposant) {
 
 		argMod = (abs(ceil(exposant / 0.5)) + 1) * 0.5;
 		p = ceil((nbDecimales + (argMod - 0.5) * 0.5 + (argMod / 5) + 0.31));
-		degre = CalculDegré(exposant, p);
+		degre = CalculDegré(p);
 		polynome05 = CalculPolynome((exposant > 0 ? 0.5 : -0.5), degre);
 		polynomeReste = CalculPolynome(reste, degre);
 		totalPolynome = reste * (Puissance(polynome05, multipleDe05));
 	}else{
-		degre = CalculDegré(exposant, nbDecimales);
+		degre = CalculDegré(nbDecimales);
+		
 		resultatPolynome = CalculPolynome(exposant, degre);
 		totalPolynome = resultatPolynome;
 	}
 	return totalPolynome;
 }
 
-double CalculDegré(int nbDecimale){
-	double n = 0, Resultat, constante;
+int CalculDegré(int nbDecimale){
+	int n = 0;
+	double Resultat, constante;
 	Resultat = CalculPourDegre(n);
 	constante = 0.5 * Puissance(10, -nbDecimale);
 	while (Resultat >= constante) {
-		Resultat = CalculPourDegre(n);
 		n++;
+		Resultat = CalculPourDegre(n);
 	}
 	return n;
 }
@@ -61,4 +81,28 @@ double CalculPolynome(double nombre, int degre) {
 		total += (Puissance(nombre, n) / factorielle(nombre));
 	}
 	return total;
+}
+
+double Puissance(double x, double exposant) {
+	double result = 1;
+	if (x == 0 && exposant == 0) {
+		return 1;
+	}
+	if (exposant > 0) {
+		for (int i = 0; i < exposant; i++) {
+			result *= x;
+		}
+	}
+	else {
+		for (int i = 0; i > exposant; i--) {
+			result *= (1 / x);
+		}
+	}
+	return result;
+}
+
+int factorielle(int x) {
+	if (x > 1)
+		return x*factorielle(x-1);
+	return 1;
 }

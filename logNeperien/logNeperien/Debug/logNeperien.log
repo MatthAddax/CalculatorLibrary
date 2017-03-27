@@ -1,5 +1,5 @@
 ﻿  Source.c
-c:\users\jonathan\documents\visual studio 2015\projects\logneperien\logneperien\source.c(25): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-c:\users\jonathan\documents\visual studio 2015\projects\logneperien\logneperien\source.c(35): warning C4013: 'afficheDecimales' undefined; assuming extern returning int
-  logNeperien.vcxproj -> C:\Users\Jonathan\Documents\Visual Studio 2015\Projects\logNeperien\Debug\logNeperien.exe
-  logNeperien.vcxproj -> C:\Users\Jonathan\Documents\Visual Studio 2015\Projects\logNeperien\Debug\logNeperien.pdb (Full PDB)
+c:\users\jonathan\documents\visual studio 2015\projects\logneperien\logneperien\source.c(30): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+c:\users\jonathan\documents\visual studio 2015\projects\logneperien\logneperien\source.c(39): warning C4013: 'afficheDecimales' undefined; assuming extern returning int
+  logNeperien.vcxproj -> C:\Users\Jonathan\documents\visual studio 2015\Projects\logNeperien\Debug\logNeperien.exe
+  logNeperien.vcxproj -> C:\Users\Jonathan\documents\visual studio 2015\Projects\logNeperien\Debug\logNeperien.pdb (Full PDB)

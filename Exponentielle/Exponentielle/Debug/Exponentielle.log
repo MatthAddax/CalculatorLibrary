@@ -1,0 +1,8 @@
+﻿  Source.c
+c:\users\jonathan\documents\visual studio 2015\projects\exponentielle\exponentielle\source.c(32): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+c:\users\jonathan\documents\visual studio 2015\projects\exponentielle\exponentielle\source.c(40): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+c:\users\jonathan\documents\visual studio 2015\projects\exponentielle\exponentielle\source.c(42): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+c:\users\jonathan\documents\visual studio 2015\projects\exponentielle\exponentielle\source.c(73): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+c:\users\jonathan\documents\visual studio 2015\projects\exponentielle\exponentielle\source.c(79): warning C4244: 'function': conversion from 'double' to 'int', possible loss of data
+  Exponentielle.vcxproj -> C:\Users\Jonathan\Documents\Visual Studio 2015\Projects\Exponentielle\Debug\Exponentielle.exe
+  Exponentielle.vcxproj -> C:\Users\Jonathan\Documents\Visual Studio 2015\Projects\Exponentielle\Debug\Exponentielle.pdb (Full PDB)
